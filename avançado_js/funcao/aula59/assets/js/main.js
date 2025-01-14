@@ -107,7 +107,6 @@ function Criarcalculadora(){
     this.btnClicado = function(){
         document.addEventListener("click", e => {
             const el = e.target;
-            console.log(this)
 
             if(el.classList.contains('btn-num')){ 
                 this.mostraDisplay(el.textContent)
