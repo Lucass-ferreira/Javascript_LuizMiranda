@@ -29,7 +29,7 @@ function criarCalculadora(){
 
 
             } catch (error) {
-                alert('Conta Ivalida')
+                alert('Conta Invalida')
                 return
             }
         },
