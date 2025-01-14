@@ -16,8 +16,22 @@ function criarCalculadora(){
 
         fazCalculo(){
             let valor = this.display.value;
-            valor = eval(valor)
-            this.display.value = String(valor)
+
+            try {
+                valor = eval(valor)
+                
+                if(!valor){
+                    alert('Conta Invalida')
+                    return
+                }
+
+                this.display.value = String(valor)
+
+
+            } catch (error) {
+                alert('Conta Ivalida')
+                return
+            }
         },
 
         btnClicado(){
