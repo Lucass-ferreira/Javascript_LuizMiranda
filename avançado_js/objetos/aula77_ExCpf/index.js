@@ -15,24 +15,12 @@ Se o número digito for maior que 9, consideramos 0.
 Se o número digito for maior que 9, consideramos 0.
 */
 
-// expressão regular
-// /\D+/g so pega numeros
-
-// function calcularCpf(cpfValor){
-//     const cpf = cpfValor
-//     const cpfArr = Array.from(cpf)
-
-//     console.log(cpfArr)
-// }
-
-// calcularCpf(70548445052)
-
 (function(){
     let resp = 0;
     let total = 0
+    let arrTotal = 0
 
     function calcularCpf(ac, valor){
-        console.log(ac , 'valor: ', valor, 'ArrTotal: ', arrTotal, 'resp: ', resp)
         resp += Number(valor) * (arrTotal)
         arrTotal--
         
@@ -42,28 +30,32 @@ Se o número digito for maior que 9, consideramos 0.
     }
 
     function formatCpf(valorCpf){
-        const valorCpfOrig = valorCpf
         const cpf = valorCpf
         const cpfLimpo = cpf.replace(/\D+/g, '').slice(0, -2)
-        const cpfArrInt = Array.from(cpfLimpo)
-        return cpfArrInt
+        const cpfArrInterno = Array.from(cpfLimpo)
+        return cpfArrInterno
     }
 
-    const arrCpf = formatCpf('705.484.450-52')
-    console.log(arrCpf)
+    function calcularDigito(arrCpf){
+        arrTotal = arrCpf.length + 1
+        resp = 0
+        let somaCpf = arrCpf.reduce(calcularCpf, 2)
+        arrCpf.push(somaCpf)
+        return somaCpf
+    }
 
-    let arrTotal = arrCpf.length + 1
-    let somaCpf = arrCpf.reduce(calcularCpf, 2)
-    arrCpf.push(somaCpf)
-    console.log(arrCpf)
+    function validarCpf(num_cpf){
+        const cpfDigito_Verificador = num_cpf.slice(-2)
+        const cpf_format = formatCpf(num_cpf)
 
-    arrTotal = arrCpf.length + 1
-    resp = 0
-    let somaCpf02 = arrCpf.reduce(calcularCpf, 2)
-    arrCpf.push(somaCpf02)
+        let primeiro_Digito = calcularDigito(cpf_format)
+        const segundo_Digito = calcularDigito(cpf_format)
 
-    
-    console.log(arrCpf.join(''))
+        const digitoFinal = primeiro_Digito.toString() + segundo_Digito.toString()
+        console.log(num_cpf)
+        return (digitoFinal === cpfDigito_Verificador) ? console.log('Esse CPF é valido!') : console.log('Esse CPF é invalido!')
+    }
 
+    validarCpf('705.484.450-52')
 })()
 
