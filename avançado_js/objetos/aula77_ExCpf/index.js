@@ -27,21 +27,43 @@ Se o número digito for maior que 9, consideramos 0.
 
 // calcularCpf(70548445052)
 
-const cpf = '705.484.450-52'
-const cpfLimpo = cpf.replace(/\D+/g, '').slice(0, -1)
+(function(){
+    let resp = 0;
+    let total = 0
 
-const cpfArr01 = Array.from(cpfLimpo)
-// const cpfArr02 = Array.from(cpfLimpo)
+    function calcularCpf(ac, valor){
+        console.log(ac , 'valor: ', valor, 'ArrTotal: ', arrTotal, 'resp: ', resp)
+        resp += Number(valor) * (arrTotal)
+        arrTotal--
+        
+        total = 11 - (resp % 11)
+        if(total > 9) total = 0
+        return total
+    }
 
-let resp = 0;
-let arrTotal = cpfArr01.length + 1
-const somaCpf = cpfArr01.reduce(function(ac, valor){
-    resp += Number(valor) * (arrTotal)
-    arrTotal--
-    return 11 - (resp % 11)
-}, 2)
+    function formatCpf(valorCpf){
+        const valorCpfOrig = valorCpf
+        const cpf = valorCpf
+        const cpfLimpo = cpf.replace(/\D+/g, '').slice(0, -2)
+        const cpfArrInt = Array.from(cpfLimpo)
+        return cpfArrInt
+    }
 
-cpfArr01.push(somaCpf)
-// console.log(cpfArr01)
+    const arrCpf = formatCpf('705.484.450-52')
+    console.log(arrCpf)
 
-console.log(somaCpf)
+    let arrTotal = arrCpf.length + 1
+    let somaCpf = arrCpf.reduce(calcularCpf, 2)
+    arrCpf.push(somaCpf)
+    console.log(arrCpf)
+
+    arrTotal = arrCpf.length + 1
+    resp = 0
+    let somaCpf02 = arrCpf.reduce(calcularCpf, 2)
+    arrCpf.push(somaCpf02)
+
+    
+    console.log(arrCpf.join(''))
+
+})()
+
