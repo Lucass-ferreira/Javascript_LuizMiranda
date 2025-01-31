@@ -44,18 +44,32 @@ Se o número digito for maior que 9, consideramos 0.
         return somaCpf
     }
 
+    // const isSequencia = function() {
+    //     const sequencia = cpfLimpo[0].repeat(this.cpfLimpo.length);
+    //     return sequencia === this.cpfLimpo;
+    // };
+
     function validarCpf(num_cpf){
+        // precisa de um tratamento de erro, pois éum dado q vem do usario.
+        // if (typeof valor !== 'text') throw new TypeError('Mensagem');
+
+        
         const cpfDigito_Verificador = num_cpf.slice(-2)
         const cpf_format = formatCpf(num_cpf)
+        const tamanhoCpf = num_cpf.replace(/\D+/g, '').length
+        
+        if(typeof num_cpf === 'undefined') return false;
+        if(tamanhoCpf !== 11) return false;
+        // if(isSequencia()) return false;
 
         let primeiro_Digito = calcularDigito(cpf_format)
         const segundo_Digito = calcularDigito(cpf_format)
 
         const digitoFinal = primeiro_Digito.toString() + segundo_Digito.toString()
-        console.log(num_cpf)
+        // console.log(num_cpf)
         return (digitoFinal === cpfDigito_Verificador) ? console.log('Esse CPF é valido!') : console.log('Esse CPF é invalido!')
     }
 
-    validarCpf('705.484.450-52')
+    validarCpf('096.280.765-66')
 })()
 
