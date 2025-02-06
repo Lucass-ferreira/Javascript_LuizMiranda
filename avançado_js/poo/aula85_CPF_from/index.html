@@ -3,13 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valida CPF</title><link rel="stylesheet" href="./assets/estilo/estilo.css">
+    <title>Formulario de Cadastro</title><link rel="stylesheet" href="./assets/estilo/estilo.css">
 </head>
 <body>
     
     <section class="container">
-        <h1>Validação CPF</h1>
-    </section>
+        
+
+        
+
+        <form action="#" method="post">
+            <h1>Formulario de Cadastro</h1>
+
+            <ul>
+                <li>Nenhum campo pode estar vazio</li>
+                <li>Usuário só poderá conter letras e/ou números</li>
+                <li>Usuário deverá ter entre 3 a 12 caracteres</li>
+                <li>Senha precisa ter entre 6 e 12 caracteres</li>
+            </ul>
+
+            <label for="nome">Nome: <input type="text"></label>
+            <label for="sobrenome">Sobrenome: <input type="text"></label>
+            <label for="cpf">CPF: <input type="number"></label>
+            <label for="usuario">Usuário: <input type="text"></label>
+            <label for="senha">Senha: <input type="password"></label>
+            <label for="confirmSenha">Repetir senha: <input type="password"></label>
+            <button type="submit">Enviar</button>
+        </form>
+    </section> 
 
     <script src="./assets/js/main.js"></script>
 </body>
