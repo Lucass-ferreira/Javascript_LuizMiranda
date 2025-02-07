@@ -12,7 +12,7 @@
 
         
 
-        <form action="#" method="post">
+        <form action="#" method="post" id="formulario">
             <h1>Formulario de Cadastro</h1>
 
             <ul>
@@ -22,16 +22,16 @@
                 <li>Senha precisa ter entre 6 e 12 caracteres</li>
             </ul>
 
-            <label for="nome">Nome: <input type="text"></label>
-            <label for="sobrenome">Sobrenome: <input type="text"></label>
-            <label for="cpf">CPF: <input type="number"></label>
-            <label for="usuario">Usuário: <input type="text"></label>
-            <label for="senha">Senha: <input type="password"></label>
-            <label for="confirmSenha">Repetir senha: <input type="password"></label>
-            <button type="submit">Enviar</button>
+            <label for="nome">Nome: <input type="text" id="nome"></label>
+            <label for="sobrenome">Sobrenome: <input type="text" id="sobrenome"></label>
+            <label for="cpf">CPF: <input type="number" id="cpf"></label>
+            <label for="usuario">Usuário: <input type="text" id="usuario"></label>
+            <label for="senha">Senha: <input type="password" id="senha"></label>
+            <label for="confirmSenha">Repetir senha: <input type="password" id="senhaConf"></label>
+            <button type="submit" id="btnForm">Enviar</button>
         </form>
     </section> 
 
-    <script src="./assets/js/main.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
