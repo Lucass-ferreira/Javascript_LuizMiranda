@@ -75,3 +75,8 @@ form button:hover {
     list-style-type: none;
     padding: 0;
 }
+
+.error-text{
+  font-size: 15px;
+  color: red;
+}

@@ -1,52 +1,3 @@
-// (function(){
-//     const btnForm = document.querySelector('#btnForm')
-//     btnForm.addEventListener('click', function(event){
-//         event.preventDefault()
-
-//         const nome = document.querySelector('#nome')
-//         const sobrenome = document.querySelector('#sobrenome')
-//         const cpf = document.querySelector('#cpf')
-//         const usuario = document.querySelector('#usuario')
-//         const senha = document.querySelector('#senha')
-//         const senhaConf = document.querySelector('#senhaConf')
-
-//         if(!nome.value){
-//             const msgError = document.createElement('p');
-//             msgError.textContent = 'Nome invalido, porfavor digite seu nome.';
-//             nome.appendChild(msgError)
-//             // throw new Error('Nome invalido, porfavor digite seu nome.');
-//         }
-
-//         const dados = new Dados(nome.value, sobrenome.value, cpf.value, usuario.value, senha.value, senhaConf.value)
-//         dados.mostra()
-
-//         let validacpf = new ValidaCPF(cpf.value);
-        
-//         if (validacpf.valida()) {
-//           console.log('CPF válido');
-//         } else {
-//         //   console.log('CPF inválido');
-//           alert('CPF inválido, digite um CPF valido.')
-//         }
-//     })
-
-// })()
-
-// class Dados{
-//     constructor(nome, sobrenome, cpf, usuario, senha, senhaConf){
-//         this.nome = nome
-//         this.sobrenome = sobrenome
-//         this.cpf = cpf
-//         this.usuario = usuario
-//         this.senha = senha
-//         this.senhaConf = senhaConf
-//     }
-
-//     mostra(){
-//         console.log(this)
-//     }
-// }
-
 class ValidaFormulario {
     constructor() {
       this.formulario = document.querySelector('.formulario');
@@ -78,8 +29,8 @@ class ValidaFormulario {
   
       if(senha.value !== repetirSenha.value) {
         valid = false;
-        this.criaErro(senha, 'Campos senha e repetir senha precisar ser iguais.');
-        this.criaErro(repetirSenha, 'Campos senha e repetir senha precisar ser iguais.');
+        this.criaErro(senha, 'Campos "senha" e "repetir senha" precisar ser iguais.');
+        this.criaErro(repetirSenha, 'Campos "senha" e "repetir senha" precisar ser iguais.');
       }
   
       if(senha.value.length < 6 || senha.value.length > 12) {
